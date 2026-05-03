@@ -2,7 +2,7 @@
 
 A real-time prayer times display app built in **Flutter**, deployed as a web app via **GitHub Pages** and run on a TV inside **Al-Falah Masjid in Kitchener, ON**. The app served as the mosque's sole source of displayed prayer times from **October 2022 to October 2024**, relied upon by hundreds of worshippers daily — and significantly more on Fridays.
 
-🔗 **[Live Demo](https://safwans143.github.io/Prayer-Times-Application/)** ← *(best viewed at 1097 × 617)*
+🔗 **[Live Demo]([https://safwans143.github.io/Prayer-Times-Application](https://safwans143.github.io/alfalahkitchener/)** ← *(best viewed at 1097 × 617)*
 
 ---
 
