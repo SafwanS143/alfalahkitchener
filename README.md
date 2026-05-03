@@ -8,7 +8,7 @@ A real-time prayer times display app built in **Flutter**, deployed as a web app
 
 ## 📸 Preview
 
-![Prayer Times Display](screenshot.png)
+![Prayer Times Display]()
 
 ---
 
