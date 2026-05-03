@@ -67,8 +67,8 @@ Current Time → Check Schedule Map → Determine State → Render Screen
 
 ```bash
 # Clone the repo
-git clone https://github.com/SafwanS143/Prayer-Times-Application.git
-cd Prayer-Times-Application
+git clone https://github.com/SafwanS143/alfalahkitchener.git
+cd alfalahkitchener
 
 # Run at the target resolution (Chrome)
 flutter run -d chrome --web-browser-flag "--window-size=1097,617"
@@ -83,7 +83,7 @@ Or open the hosted GitHub Pages link in a browser window sized to **1097 × 617*
 ## 📁 Project Structure
 
 ```
-Prayer-Times-Application/
+alfalahkitchener/
 │
 ├── main.dart.js                # Compiled Flutter web output
 ├── flutter.js                  # Flutter web engine bootstrapper
