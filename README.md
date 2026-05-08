@@ -1,8 +1,10 @@
 # 🕌 Al-Falah Masjid — Prayer Times Display
 
-A real-time prayer times display app built in **Flutter**, deployed as a web app via **GitHub Pages** and run on a TV inside **Al-Falah Masjid in Kitchener, ON**. The app served as the mosque's sole source of displayed prayer times from **October 2022 to October 2024**, relied upon by hundreds of worshippers daily — and significantly more on Fridays.
+A real-time prayer times display app built in **Flutter**, originally deployed as an **Android APK on an Orange Pi** wired to a TV inside **Al-Falah Masjid in Kitchener, ON**. Later compiled to **Flutter Web** and hosted on GitHub Pages for public viewing and testing — though the masjid itself continued running the APK build.
 
-🔗 **[Live Demo]([https://safwans143.github.io/alfalahkitchener](https://safwans143.github.io/alfalahkitchener/)** ← *(best viewed at 1097 × 617)*
+The Orange Pi / APK build served as the mosque's sole prayer time display from **October 2022 to October 2024**, seen by hundreds of worshippers walking into the masjid daily, with peak traffic on Fridays.
+
+🔗 **[Live Demo](https://safwans143.github.io/alfalahkitchener/)** ← *(public web build, best viewed at 1097 × 617)*
 
 ---
 
@@ -37,7 +39,7 @@ All screen transitions are fully automatic — no user interaction required.
 
 ## 🏗️ How It Works
 
-Prayer times are stored as a **hardcoded yearly schedule** (a map of dates to times) directly in the codebase — no database or external API required. This makes the app fully self-contained, offline-capable, and reliable for a TV deployment where internet consistency cannot be guaranteed.
+This is a **frontend-only** app — no database, no backend, no external API calls. Prayer times are stored as a **hardcoded yearly schedule** (a Dart `Map` of dates to times) directly in the codebase. This made the app fully self-contained and offline-capable, which mattered for the masjid deployment where internet consistency wasn't guaranteed.
 
 The app continuously checks the current time against the schedule and manages screen state accordingly:
 
@@ -56,9 +58,9 @@ Current Time → Check Schedule Map → Determine State → Render Screen
 | Layer | Technology |
 |---|---|
 | Framework | Flutter (Dart) |
-| Deployment | Flutter Web → GitHub Pages |
+| Primary Deployment | Android APK on Orange Pi (Android OS), wired to TV |
+| Public Deployment | Flutter Web → GitHub Pages (added later for public access) |
 | Data | Hardcoded yearly prayer schedule (Dart Map) |
-| Hosting | GitHub Pages |
 | Target Display | 1097 × 617 TV screen |
 
 ---
@@ -70,8 +72,11 @@ Current Time → Check Schedule Map → Determine State → Render Screen
 git clone https://github.com/SafwanS143/alfalahkitchener.git
 cd alfalahkitchener
 
-# Run at the target resolution (Chrome)
+# Run in Chrome (web build) at the target resolution
 flutter run -d chrome --web-browser-flag "--window-size=1097,617"
+
+# Or build the Android APK (the version actually deployed at the masjid)
+flutter build apk
 ```
 
 Or open the hosted GitHub Pages link in a browser window sized to **1097 × 617**.
@@ -101,11 +106,12 @@ alfalahkitchener/
 
 ## 🌍 Real-World Impact
 
-- ✅ **Deployed live** at Al-Falah Masjid, Kitchener, ON
+- ✅ **Deployed live** at Al-Falah Masjid, Kitchener, ON — Android APK on an Orange Pi connected to the masjid's TV
 - ✅ **2 years of continuous operation** (Oct 2022 – Oct 2024)
-- ✅ **Sole prayer time display** relied upon by the mosque community
-- ✅ Served **hundreds of worshippers daily**, with peak usage on Fridays (Jummah)
-- ✅ Built, deployed, and maintained entirely **solo**
+- ✅ **Sole prayer time display** in the masjid during that period
+- ✅ Seen by **hundreds of worshippers daily** as they entered the masjid, with peak attendance on Fridays (Jummah)
+- ✅ Later released as a **public Flutter Web build** on GitHub Pages for community access and testing
+- ✅ Built, deployed, and maintained **solo**
 
 ---
 
