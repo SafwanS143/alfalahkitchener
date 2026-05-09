@@ -38,9 +38,55 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #16213a;
+    }
+    #scale-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1097px;
+      height: 617px;
+      transform-origin: 0 0;
+      overflow: hidden;
+      background: #16213a;
+    }
+    #scale-wrapper > flutter-view,
+    #scale-wrapper > flt-glass-pane,
+    #scale-wrapper > flt-scene-host,
+    #scale-wrapper > canvas,
+    #scale-wrapper > * {
+      width: 1097px !important;
+      height: 617px !important;
+    }
+  </style>
 </head>
 <body>
+  <div id="scale-wrapper"></div>
   <script>
+    (function () {
+      var BASE_W = 1097;
+      var BASE_H = 617;
+      var wrapper = document.getElementById('scale-wrapper');
+
+      function fit() {
+        var scale = Math.min(window.innerWidth / BASE_W, window.innerHeight / BASE_H);
+        wrapper.style.transform =
+          'translate(-50%, -50%) scale(' + scale + ')';
+      }
+
+      window.addEventListener('resize', fit);
+      window.addEventListener('orientationchange', fit);
+      fit();
+    })();
+
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -48,7 +94,9 @@
           serviceWorkerVersion: serviceWorkerVersion,
         }
       }).then(function(engineInitializer) {
-        return engineInitializer.initializeEngine();
+        return engineInitializer.initializeEngine({
+          hostElement: document.getElementById('scale-wrapper'),
+        });
       }).then(function(appRunner) {
         return appRunner.runApp();
       });
