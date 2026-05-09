@@ -4,7 +4,7 @@ A real-time prayer times display app built in **Flutter**, originally deployed a
 
 The Orange Pi / APK build served as the mosque's sole prayer time display from **October 2022 to October 2024**, seen by hundreds of worshippers walking into the masjid daily, with peak traffic on Fridays.
 
-🔗 **[Live Demo](https://safwans143.github.io/alfalahkitchener/)** ← *(public web build, best viewed at 1097 × 617)*
+🔗 **[Live Demo](https://safwans143.github.io/alfalahkitchener/)**
 
 ---
 
@@ -61,7 +61,7 @@ Current Time → Check Schedule Map → Determine State → Render Screen
 | Primary Deployment | Android APK on Orange Pi (Android OS), wired to TV |
 | Public Deployment | Flutter Web → GitHub Pages (added later for public access) |
 | Data | Hardcoded yearly prayer schedule (Dart Map) |
-| Target Display | 1097 × 617 TV screen |
+| Target Display | 16:9 TV screen |
 
 ---
 
@@ -72,16 +72,16 @@ Current Time → Check Schedule Map → Determine State → Render Screen
 git clone https://github.com/SafwanS143/alfalahkitchener.git
 cd alfalahkitchener
 
-# Run in Chrome (web build) at the target resolution
-flutter run -d chrome --web-browser-flag "--window-size=1097,617"
+# Run in Chrome (web build)
+flutter run -d chrome
 
 # Or build the Android APK (the version actually deployed at the masjid)
 flutter build apk
 ```
 
-Or open the hosted GitHub Pages link in a browser window sized to **1097 × 617**.
+Or just open the hosted GitHub Pages link in any browser — the layout will scale to fit your window automatically.
 
-> **Note on resolution:** The layout is currently designed for a fixed 1097 × 617 display. A planned improvement is to wrap the root widget in a `FittedBox` + `Transform.scale` to make it resolution-independent while preserving the aspect ratio — allowing it to scale correctly on any screen size.
+> **Note on display:** The app was designed for a fixed 16:9 TV at the masjid, so the layout has a fixed aspect ratio rather than reflowing for arbitrary screen shapes. The web build scales the whole UI proportionally to fill the viewport while preserving that aspect ratio — so on screens that aren't 16:9 you'll see matching dark bars on the off-axis (top/bottom on tall windows, left/right on ultrawide). This is intentional letterboxing: it keeps the display visually identical to what hangs on the wall at the masjid, regardless of where you view it from.
 
 ---
 
@@ -112,6 +112,12 @@ alfalahkitchener/
 - ✅ Seen by **hundreds of worshippers daily** as they entered the masjid, with peak attendance on Fridays (Jummah)
 - ✅ Later released as a **public Flutter Web build** on GitHub Pages for community access and testing
 - ✅ Built, deployed, and maintained **solo**
+
+---
+
+## 🕰️ A Note on Context
+
+This was built back in 2022, well before AI coding assistants were any good at frontend work — Copilot could barely autocomplete a `setState`, and asking an LLM to lay out a Flutter widget tree was a fast track to nonsense. Every pixel, every layout decision, every styling tweak in this app was hand-written and hand-tuned. Looking back at frontend code from that era is a bit humbling now that the tooling has caught up, but it's also a reminder of how much of this UI was figured out the slow way: trial, error, and a lot of hot-reloads on a TV in the masjid.
 
 ---
 
